@@ -1,13 +1,13 @@
 {% set name = "napari-signal-selector" %}
-{% set version = "0.0.3" %}
+{% set version = "0.0.6" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/napari-signal-selector-{{ version }}.tar.gz
-  sha256: 66c2131a096fefa1eff0b91c7bf4bbb43a89f6e71868d287c0006feedb73fbdb
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: 431aae63a7c76b5723d21899fd28e66c3470bd5a724735d7b809ddf4bab636af
 
 build:
   noarch: python
