@@ -6,18 +6,18 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/napari-signal-selector-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/napari-signal-selector-{{ version }}.tar.gz
   sha256: 66c2131a096fefa1eff0b91c7bf4bbb43a89f6e71868d287c0006feedb73fbdb
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
     - pip
-    - python >=3.8
+    - python {{ python_min }}
     - setuptools >=42.0.0
     - wheel
   run:
@@ -26,7 +26,7 @@ requirements:
     - napari-matplotlib >=1.1.0
     - napari-skimage-regionprops
     - numpy
-    - python >=3.8
+    - python >={{ python_min }}
     - qtpy
 
 test:
@@ -38,6 +38,7 @@ test:
   requires:
     - pip
     - pyqt
+    - python {{ python_min }}
 
 about:
   home: https://pypi.org/project/napari-signal-selector
